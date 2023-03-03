@@ -8,16 +8,29 @@ const signin = require('./Controllers/signin');
 const image = require('./Controllers/image');
 const profile = require('./Controllers/profile');
 
+// const db = knex({
+//   client: 'pg',
+//   connection: {
+//     host : '127.0.0.1',
+//     port : 5432,
+//     user : 'postgres',
+//     password : '0574200952',
+//     database : 'facerecdb'
+//   }
+// });
+
+
 const db = knex({
   client: 'pg',
   connection: {
-    host : '127.0.0.1',
+    host : 'postgres://user:ZUCzoA3fIJZJPCRD5Mi66KDlIlKjy64K@dpg-cg0iolo2qv2bfopr7m4g-a.oregon-postgres.render.com/facerecdb_7ffq',
     port : 5432,
-    user : 'postgres',
-    password : '0574200952',
-    database : 'facerecdb'
+    user : 'user',
+    password : 'ZUCzoA3fIJZJPCRD5Mi66KDlIlKjy64K',
+    database : 'facerecdb_7ffq'
   }
 });
+
 
 
 
