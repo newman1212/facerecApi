@@ -28,7 +28,6 @@ const db = knex({
     user : 'user',
     password : 'ZUCzoA3fIJZJPCRD5Mi66KDlIlKjy64K',
     database : 'facerecdb_7ffq'
-    ssl:true
   }
 });
 
