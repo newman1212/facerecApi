@@ -26,7 +26,7 @@ const db = knex({
     host : '54.191.253.12',
     port : 5432,
     // hostname: 'dpg-cg0iolo2qv2bfopr7m4g-a'
-    user : 'user',
+    username : 'user',
     password : 'ZUCzoA3fIJZJPCRD5Mi66KDlIlKjy64K',
     database : 'facerecdb_7ffq'
   }
