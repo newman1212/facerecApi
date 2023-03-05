@@ -21,12 +21,12 @@ const profile = require('./Controllers/profile');
 
 
 const db = knex({
-  client: 'pg',
+  // client: 'pg',
   connection: {
     host : 'postgres://user:ZUCzoA3fIJZJPCRD5Mi66KDlIlKjy64K@dpg-cg0iolo2qv2bfopr7m4g-a/facerecdb_7ffq',
     port : 5432,
+    // hostname: 'dpg-cg0iolo2qv2bfopr7m4g-a'
     user : 'user',
-    hostname: 'dpg-cg0iolo2qv2bfopr7m4g-a'
     password : 'ZUCzoA3fIJZJPCRD5Mi66KDlIlKjy64K',
     database : 'facerecdb_7ffq'
   }
