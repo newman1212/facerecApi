@@ -23,7 +23,7 @@ const profile = require('./Controllers/profile');
 const db = knex({
   client: 'pg',
   connection: {
-    host : '54.191.253.12',
+    host : process.env.INTERNAL_DATABASE_URL,
     port : 5432,
     // hostname: 'dpg-cg0iolo2qv2bfopr7m4g-a'
     username : 'user',
