@@ -21,7 +21,7 @@ const profile = require('./Controllers/profile');
 
 
 const db = knex({
-  client: 'psql',
+  client: 'pg',
   connection: {
     host : 'containers-us-west-196.railway.app', 
     port : 6058,
