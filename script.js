@@ -20,31 +20,17 @@ const profile = require('./Controllers/profile');
 // });
 
 
-// const db = knex({
-//   client: 'pg',
-//   connection: {
-//     host : 'containers-us-west-196.railway.app', 
-//     port : 6058,
-//     user : 'postgres',
-//     password : 'bFoh0XMKrH4NAHuZvUNv',
-//     database : 'railway'
-//   }
-// });
-
-
-
-
-
 const db = knex({
   client: 'pg',
   connection: {
-    host : 'dpg-cg0iolo2qv2bfopr7m4g-a',
-    port : 5432,
-    user : 'user',
-    password : 'ZUCzoA3fIJZJPCRD5Mi66KDlIlKjy64K',
-    database : 'facerecdb_7ffq'
+    host : 'containers-us-west-196.railway.app', 
+    port : 6058,
+    user : 'postgres',
+    password : 'bFoh0XMKrH4NAHuZvUNv',
+    database : 'railway'
   }
 });
+
 
 
 
