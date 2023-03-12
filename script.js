@@ -20,16 +20,16 @@ const profile = require('./Controllers/profile');
 // });
 
 
-// const db = knex({
-//   client: 'pg',
-//   connection: {
-//     host : 'containers-us-west-196.railway.app', 
-//     port : 6058,
-//     user : 'postgres',
-//     password : 'bFoh0XMKrH4NAHuZvUNv',
-//     database : 'railway'
-//   }
-// });
+const db = knex({
+  client: 'pg',
+  connection: {
+    host : 'containers-us-west-196.railway.app', 
+    port : 6058,
+    user : 'postgres',
+    password : 'bFoh0XMKrH4NAHuZvUNv',
+    database : 'railway'
+  }
+});
 
 
 
