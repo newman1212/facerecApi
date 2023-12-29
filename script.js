@@ -23,10 +23,10 @@ const profile = require('./Controllers/profile');
 const db = knex({
   client: 'pg',
   connection: {
-    host : 'containers-us-west-196.railway.app', 
-    port : 6058,
+    host : 'roundhouse.proxy.rlwy.net', 
+    port : 58537,
     user : 'postgres',
-    password : 'bFoh0XMKrH4NAHuZvUNv',
+    password : 'aAgDAac56-DA*gF6Gba4g2-bE1Ed1D44',
     database : 'railway'
   }
 });
