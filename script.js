@@ -1,4 +1,5 @@
  const express = require('express');
+ const ImageKit = require('imagekit');
 const bodyParser = require('body-parser');
 const cors = require('cors');
 const knex = require('knex');
@@ -45,9 +46,11 @@ const db = knex({
 const app = express(); 
 // /--to create the app--/
 
+app.use(cors()); 
+
 app.use(bodyParser.json()); //to make the req.body accessible or readable to the backend.
 
-app.use(cors()); //this is to bypass the browser's CORS(cross-origin sharing) policy...this syntax however means all
+//this is to bypass the browser's CORS(cross-origin sharing) policy...this syntax however means all
 // websites have access to the server.
 
 //AN IDEAL SYNTAX FOR USING cors WOULD BE :
@@ -59,6 +62,19 @@ app.use(cors()); //this is to bypass the browser's CORS(cross-origin sharing) po
 // app.get('/',(req,res)=> { 
 // 	res.send(database.users)
 // })
+
+const imagekit = new ImageKit({
+  publicKey: 'public_2cFR1za5B66cOp21VNf0BqyfyUU=',
+  privateKey: 'private_OrcsyyTI8OlDh0vT16DN5UNKwzo=', // Replace with your private API key
+  urlEndpoint: 'https://ik.imagekit.io/lgddg4vjl',
+});
+
+
+app.get('/auth', (req, res) => {
+  const authParameters = imagekit.getAuthenticationParameters();
+  res.json(authParameters);
+});
+
 
 app.post('/signin',(req,res)=> {
   signin.signInHandler(req,res,db,bcrypt)
