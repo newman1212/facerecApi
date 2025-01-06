@@ -70,6 +70,11 @@ const imagekit = new ImageKit({
 });
 
 
+app.get('/imagekit-auth', (req, res) => {
+  const authParams = imagekit.getAuthenticationParameters();
+  res.json(authParams);
+});
+
 app.get('/auth', (req, res) => {
   const authParameters = imagekit.getAuthenticationParameters();
   res.json(authParameters);
