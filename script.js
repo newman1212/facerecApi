@@ -38,6 +38,7 @@ const db = knex({
   client: 'pg',
   connection: 
  'postgresql://postgres:AptjHuMqYDBOFqRIjnRoXGILhjNAFAnC@roundhouse.proxy.rlwy.net:46147/railway'
+//  PUBLIC URL
 });
 
 
@@ -82,9 +83,14 @@ const imagekit = new ImageKit({
 
 
 
-app.get('/auth', (req, res) => {
-  const authParameters = imagekit.getAuthenticationParameters();
-  res.json(authParameters);
+// app.get('/auth', (req, res) => {
+//   const authParameters = imagekit.getAuthenticationParameters();
+//   res.json(authParameters);
+// });
+
+app.get('/imagekit-auth', (req, res) => {
+  const authParams = imagekit.getAuthenticationParameters();
+  res.json(authParams);
 });
 
 
