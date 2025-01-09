@@ -8,6 +8,7 @@ const register = require('./Controllers/Register');
 const signin = require('./Controllers/signin');
 const image = require('./Controllers/image');
 const profile = require('./Controllers/profile');
+const { Pool } = require("pg");
 
 // const db = knex({
 //   client: 'pg',
@@ -21,16 +22,25 @@ const profile = require('./Controllers/profile');
 // });
 
 
+// const db = knex({
+//   client: 'pg',
+//   connection: {
+//     host : 'postgres.railway.internal', 
+//     port : 5432,
+//     user : 'postgres',
+//     password : 'AptjHuMqYDBOFqRIjnRoXGILhjNAFAnC',
+//     database : 'railway'
+//   }
+// });
+
+
 const db = knex({
   client: 'pg',
-  connection: {
-    host : 'postgres.railway.internal', 
-    port : 5432,
-    user : 'postgres',
-    password : 'IVqNyxtvoJoAuPCdyNiCHgzwHXUPzqWm',
-    database : 'railway'
-  }
+  connection: 
+ 'postgresql://postgres:AptjHuMqYDBOFqRIjnRoXGILhjNAFAnC@roundhouse.proxy.rlwy.net:46147/railway'
 });
+
+
 
 
 
@@ -70,10 +80,7 @@ const imagekit = new ImageKit({
 });
 
 
-app.get('/imagekit-auth', (req, res) => {
-  const authParams = imagekit.getAuthenticationParameters();
-  res.json(authParams);
-});
+
 
 app.get('/auth', (req, res) => {
   const authParameters = imagekit.getAuthenticationParameters();
@@ -110,6 +117,39 @@ app.listen(PORT,()=>{
 
 // console.log(PORT);
 
+
+
+
+
+
+
+// Replace with the actual database URL from your hosting provider (like Railway or Heroku)
+const DATABASE_URL = process.env.DATABASE_URL
+//  || 'postgresql://postgres:AptjHuMqYDBOFqRIjnRoXGILhjNAFAnC@postgres.railway.internal:5432/railway'
+ || 'postgresql://postgres:AptjHuMqYDBOFqRIjnRoXGILhjNAFAnC@roundhouse.proxy.rlwy.net:46147/railway'
+
+// Initialize the pool
+const pool = new Pool({
+  connectionString: DATABASE_URL,
+  ssl: {
+    rejectUnauthorized: false, // Required for hosted databases with SSL
+  },
+});
+
+// Check database connection
+const checkDatabaseConnection = async () => {
+  try {
+    const res = await pool.query('SELECT NOW()');
+    console.log('Database connected successfully:', res.rows[0]);
+  } catch (err) {
+    console.error('Error connecting to the database:', err.message);
+  }
+};
+
+// Call the function when your app starts
+checkDatabaseConnection();
+
+module.exports = pool; // Export the pool for use in other parts of your app
 
 
 
