@@ -41,13 +41,13 @@ dotenv.config();
 
 
 const db = knex({
-  client: 'pg',
-  connection: 
- process.env.DATABASE_URL,
-  ssl: { rejectUnauthorized: false },   // Needed for Neon
-//  PUBLIC URL
+  client: "pg",
+  connection: {
+    connectionString: process.env.DATABASE_URL,
+    ssl: { rejectUnauthorized: false }
+  },
+  pool: { min: 2, max: 10 } // keep a safe pool size
 });
-
 
 
 
